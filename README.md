@@ -21,7 +21,14 @@ Auto Notations/
   PLAUD Formatted Notes/
 ```
 
-Copy each folder ID from its Google Drive URL. A folder URL looks like:
+The incoming transcript folder is:
+
+```text
+https://drive.google.com/drive/u/0/folders/1KwOOWBrUEL8i9vRk4FNWDesJDdZWLd66
+```
+
+Copy the processed and output folder IDs from their Google Drive URLs. A folder
+URL looks like:
 
 ```text
 https://drive.google.com/drive/folders/FOLDER_ID_IS_HERE
@@ -39,4 +46,3 @@ See `docs/setup-google-apps-script.md` for setup steps.
 This version formats plain text transcripts with a simple template. It does not
 yet call an AI model. The next pass can add an OpenAI formatter that extracts
 summaries, decisions, action items, and follow-up tasks from the transcript.
-

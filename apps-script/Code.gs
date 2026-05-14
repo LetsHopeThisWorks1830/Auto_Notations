@@ -13,12 +13,13 @@ const CONFIG_KEYS = {
 };
 
 const DEFAULT_TRIGGER_MINUTES = 10;
+const DEFAULT_INCOMING_FOLDER_ID = '1KwOOWBrUEL8i9vRk4FNWDesJDdZWLd66';
 
 function configureAutoNotations() {
   const properties = PropertiesService.getScriptProperties();
 
   properties.setProperties({
-    [CONFIG_KEYS.incomingFolderId]: 'PASTE_INCOMING_FOLDER_ID_HERE',
+    [CONFIG_KEYS.incomingFolderId]: DEFAULT_INCOMING_FOLDER_ID,
     [CONFIG_KEYS.outputFolderId]: 'PASTE_OUTPUT_FOLDER_ID_HERE',
     [CONFIG_KEYS.processedFolderId]: 'PASTE_PROCESSED_FOLDER_ID_HERE'
   }, true);

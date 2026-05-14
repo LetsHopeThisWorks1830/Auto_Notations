@@ -11,7 +11,14 @@ Auto Notations/
   PLAUD Formatted Notes/
 ```
 
-Open each folder and copy its folder ID from the URL.
+The incoming transcript folder is already configured:
+
+```text
+PLAUD Incoming Transcripts: 1KwOOWBrUEL8i9vRk4FNWDesJDdZWLd66
+```
+
+Open the processed and formatted notes folders and copy their folder IDs from
+the URL.
 
 ## 2. Create The Apps Script Project
 
@@ -27,7 +34,7 @@ In `Code.gs`, update `configureAutoNotations()`:
 
 ```js
 properties.setProperties({
-  INCOMING_FOLDER_ID: 'your incoming folder ID',
+  INCOMING_FOLDER_ID: '1KwOOWBrUEL8i9vRk4FNWDesJDdZWLd66',
   OUTPUT_FOLDER_ID: 'your formatted notes folder ID',
   PROCESSED_FOLDER_ID: 'your processed transcripts folder ID'
 }, true);
@@ -57,4 +64,3 @@ The script will then run `processPlaudTranscripts()` every 10 minutes.
 - It creates placeholder summary and decision sections.
 - It lightly detects action items by looking for phrases like `action item`, `follow up`, and `next step`.
 - The next pass can add AI formatting while keeping this same folder workflow.
-
