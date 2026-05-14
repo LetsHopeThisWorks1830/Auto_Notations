@@ -1,0 +1,12 @@
+# Apps Script / clasp local auth and generated files
+.clasprc.json
+.clasp.json
+
+# Local environment files
+.env
+.env.*
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+
