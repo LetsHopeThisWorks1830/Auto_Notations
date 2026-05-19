@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SOAP Note AI Output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "metadata",
+    "soap_note",
+    "coding_suggestions",
+    "diagnostic_considerations",
+    "quality_checks",
+    "review_notice"
+  ],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_title", "encounter_date", "patient_name", "clinician_name"],
+      "properties": {
+        "source_title": {
+          "type": "string"
+        },
+        "encounter_date": {
+          "type": "string",
+          "description": "Use YYYY-MM-DD when available, otherwise use unknown."
+        },
+        "patient_name": {
+          "type": "string",
+          "description": "Use unknown when not available."
+        },
+        "clinician_name": {
+          "type": "string",
+          "description": "Use unknown when not available."
+        }
+      }
+    },
+    "soap_note": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subjective", "objective", "assessment", "plan"],
+      "properties": {
+        "subjective": {
+          "type": "string"
+        },
+        "objective": {
+          "type": "string"
+        },
+        "assessment": {
+          "type": "string"
+        },
+        "plan": {
+          "type": "string"
+        }
+      }
+    },
+    "coding_suggestions": {
+      "type": "array",
+      "description": "Potential billing/coding suggestions only. Must be reviewed by a qualified coder or clinician.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["code_system", "code", "description", "rationale", "confidence", "review_required"],
+        "properties": {
+          "code_system": {
+            "type": "string",
+            "enum": ["ICD-10-CM", "CPT", "HCPCS", "Other"]
+          },
+          "code": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "string",
+            "enum": ["low", "medium", "high"]
+          },
+          "review_required": {
+            "type": "boolean",
+            "const": true
+          }
+        }
+      }
+    },
+    "diagnostic_considerations": {
+      "type": "array",
+      "description": "Potential diagnoses or differential considerations only. Do not present as final diagnoses.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["condition", "supporting_evidence", "missing_information", "confidence", "review_required"],
+        "properties": {
+          "condition": {
+            "type": "string"
+          },
+          "supporting_evidence": {
+            "type": "string"
+          },
+          "missing_information": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "string",
+            "enum": ["low", "medium", "high"]
+          },
+          "review_required": {
+            "type": "boolean",
+            "const": true
+          }
+        }
+      }
+    },
+    "quality_checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["missing_key_details", "contradictions_or_uncertainties", "follow_up_questions"],
+      "properties": {
+        "missing_key_details": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contradictions_or_uncertainties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "follow_up_questions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "review_notice": {
+      "type": "string",
+      "const": "AI-generated draft. Clinical, diagnostic, and coding suggestions require review by a qualified clinician or coder before use."
+    }
+  }
+}
+

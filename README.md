@@ -38,8 +38,10 @@ https://drive.google.com/drive/folders/FOLDER_ID_IS_HERE
 
 - `apps-script/Code.gs` contains the workflow.
 - `apps-script/appsscript.json` contains the required Apps Script scopes.
+- `schemas/soap-note.schema.json` defines the structured AI SOAP note output.
 
 See `docs/setup-google-apps-script.md` for setup steps.
+See `docs/zapier-soap-note-workflow.md` for the Zapier AI step.
 
 ## Current Scope
 
